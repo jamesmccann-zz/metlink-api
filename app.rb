@@ -20,7 +20,7 @@ class Metlink < Sinatra::Application
       tds = arrival_row.xpath('td')
       arrival[:service] = tds[0].css('.id').first.content.strip
       arrival[:destination] = tds[1].css('span').first.content.strip
-      arrival[:rti] = tds[2].css('span').first.content.strip
+      arrival[:arrival_time] = tds[2].css('span').first.content.strip
 
       arrivals << arrival
     end
