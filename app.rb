@@ -22,6 +22,10 @@ class Metlink < Sinatra::Application
       arrival[:destination] = tds[1].css('span').first.content.strip
       arrival[:arrival_time] = tds[2].css('span').first.content.strip
 
+      if arrival[:arrival_time].include?(':')
+        arrival[:scheduled] = true
+      end
+
       arrivals << arrival
     end
 
